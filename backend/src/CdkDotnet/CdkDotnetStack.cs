@@ -69,9 +69,8 @@ namespace CdkDotnet
             );
 
             // Set unique domain
-            string stackName = Stack.Of(this).StackName.ToLower();
             string accountNumber = Stack.Of(this).Account;
-            string domainPrefix = $"{stackName}-{accountNumber}";
+            string domainPrefix = $"{accountNumber}-roamingfox";
 
             // Create a custom domain for the Hosted UI
             UserPoolDomain userPoolDomain = new UserPoolDomain(this, "CognitoHostedUIDomain", new UserPoolDomainProps
@@ -105,9 +104,9 @@ def lambda_handler(event, context):
             });
 
             // Create API Gateway REST API and /prod stage
-            RestApi api = new RestApi(this, "CognitoUnityIntegration", new RestApiProps
+            RestApi api = new RestApi(this, "RoamingFox", new RestApiProps
             {
-                Description = "API Gateway for Cognito Unity Integration",
+                Description = "API Gateway for Cognito Integration with Romaing Fox Unity App",
                 EndpointTypes = new[] { EndpointType.REGIONAL },
                 Deploy = false // prevent '/prod' stage from deploying
             });
@@ -268,7 +267,7 @@ def lambda_handler(event, context):
             }));
 
             // Create DynamoDB table
-            Table myDynamoDBTable = new Table(this, "UnityCognitoDB", new TableProps
+            Table myDynamoDBTable = new Table(this, "RoamingFoxDB", new TableProps
             {
                 RemovalPolicy = RemovalPolicy.DESTROY, // Remove the DynamoDB database when the stack is deleted - CHANGE THIS AS NEEDED
                 PartitionKey = new Amazon.CDK.AWS.DynamoDB.Attribute
@@ -306,7 +305,7 @@ def lambda_handler(event, context):
             }));
 
             // Create S3 Bucket
-            Bucket s3Bucket = new Bucket(this, "UnityCognitoBucket", new BucketProps
+            Bucket s3Bucket = new Bucket(this, "RoamingFoxBucket", new BucketProps
             {
                 Versioned = true, // Enable versioning if needed
                 RemovalPolicy = RemovalPolicy.DESTROY // Remove the S3 bucket when the stack is deleted - CHANGE THIS AS NEEDED

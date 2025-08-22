@@ -8,12 +8,12 @@ public class ExternalParameters
     public static string FacebookClientToken = ""; // eg. 1234567890abcdefg0987654321
     
     // AWS variables
-    public static RegionEndpoint region = RegionEndpoint.USEast1; // change this if you are in a different region
-    public static Uri ApiGatewayEndpoint = new Uri("https://xxxxxx.execute-api.us-east-1.amazonaws.com"); // eg. https://123abcxyz.execute-api.us-east-1.amazonaws.com (do not put PATH)
+    public static RegionEndpoint region = RegionEndpoint.USEast2; // change this if you are in a different region
+    public static Uri ApiGatewayEndpoint = new Uri("https://xxxxxx.execute-api.us-east-2.amazonaws.com"); // eg. https://123abcxyz.execute-api.us-east-2.amazonaws.com (do not put PATH)
 
     // Amazon Cognito Variables
-    public static string identityPool = ""; // eg. us-east-1:000000-aaaa-bbbb-cccc-12345667890
-    public static string userPoolId = ""; // eg. us-east-1_abcd1234
+    public static string identityPool = ""; // eg. us-east-2:000000-aaaa-bbbb-cccc-12345667890
+    public static string userPoolId = ""; // eg. us-east-2_abcd1234
     public static string appClientId = ""; // eg. 1a2b3c4d5e6g7h8i9j
 
     // Amazon S3 variables
