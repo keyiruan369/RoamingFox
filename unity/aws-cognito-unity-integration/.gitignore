@@ -29,6 +29,9 @@
 # Visual Studio cache directory
 .vs/
 
+# VSCode - ignore everything including launch.json & settings.json
+.vscode/
+
 # Gradle cache directory
 .gradle/
 
